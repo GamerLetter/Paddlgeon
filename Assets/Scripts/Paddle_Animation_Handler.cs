@@ -12,5 +12,21 @@ public class Paddle_Animation_Handler : MonoBehaviour
             animations.Play("Paddle-Hit");
             animations.Play("Paddle-Not-Hit");
         }
+        if (other.gameObject.tag == "Score_Wall")
+        {
+            int randomCurse = 0;
+                if (randomCurse == 0)
+                {
+                    Paddle.activeCurse = "giant";
+                }
+                else if (randomCurse == 1)
+                {
+                    Paddle.activeCurse = "punch";
+                }
+                else if (randomCurse == 2)
+                {
+                    Paddle.activeCurse = "double";
+                }
+        }
     }
 }

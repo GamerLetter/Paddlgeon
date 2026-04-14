@@ -14,12 +14,13 @@ public class Paddle : MonoBehaviour
     public GameObject triggerPad;
     public GameObject collisionPad;
     public Animator animations;
+    public static string activeCurse;
+    public static bool currentlyCursed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 		my_rb = GetComponent<Rigidbody2D>(); //Gets the rigid body 2D component of the parent object  								
-
     }
 
     // Update is called once per frame
@@ -28,6 +29,11 @@ public class Paddle : MonoBehaviour
         //Every frame it calls the moveUp and the moveDown functions, allowing the player to move
         moveUp();
         moveDown();
+        if (activeCurse == "giant")
+        {
+            giantCurse();
+            currentlyCursed = true;
+        }
     }
 
     void Update()
@@ -56,20 +62,15 @@ public class Paddle : MonoBehaviour
     
     void letGo() //A function to competely stop the player if the down or up key is released
     {
-        if (Input.GetKeyUp(DownKey) || Input.GetKeyUp(UpKey)) //If the down key is let go, then the linear velocity of the rigid body is set to 0 in both the x and y axis.
+        if (Input.GetKeyUp(DownKey) || Input.GetKeyUp(UpKey)) //If the down or up key is let go, then the linear velocity of the rigid body is set to 0 in both the x and y axis.
         {
             my_rb.linearVelocity = new Vector2(0, 0);
         }
-        // if (Input.GetKeyUp(UpKey))//If the up key is let go, then the linear velocity of the rigid body is set to 0 in both the x and y axis.
-        // {
-        //     my_rb.linearVelocity = new Vector2(0, 0);
-        // }
     }
-    //  void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.tag == "Ball")
-    //     {
-    //         animator.Play("Paddle-Hit");
-    //     }
-    // }
+    
+    void giantCurse()
+    {
+        gameObject.transform.localScale = new Vector2(4, 4);
+        my_rb.gravityScale = 3;
+    }
 }

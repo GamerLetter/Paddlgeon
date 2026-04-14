@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 5038395136909439252}
   - component: {fileID: 4857985561377335265}
   - component: {fileID: 568521719552383172}
-  - component: {fileID: 9093522209396506125}
+  - component: {fileID: 559960343094580818}
+  - component: {fileID: 6239938769793672485}
+  - component: {fileID: 960246650656553731}
   m_Layer: 0
   m_Name: MonkeysPaw
   m_TagString: Score_Wall
@@ -162,7 +164,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6766085, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9093522209396506125
+--- !u!114 &559960343094580818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +173,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 914648320161161622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff2baa434f226f45b08db8610941ae3, type: 3}
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.Seeker
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 1
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &6239938769793672485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914648320161161622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7873e4b79147945418850cb9d88cd010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  target: {fileID: 8957482678540407891, guid: b582619f5609ed048ba48f6c4e83bf06, type: 3}
+  speed: 0
+  nextWaypointDistance: 1
   animations: {fileID: 4857985561377335265}
+--- !u!50 &960246650656553731
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914648320161161622}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

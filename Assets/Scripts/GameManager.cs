@@ -8,12 +8,19 @@ public class GameManager : MonoBehaviour
 {
    public TMP_Text current_score;  //Establishing a text variable for the text list
    public GameObject ball;
-   public int score;
+   private int score;
+   private int next_paw_score;
+   private int next_speed_score = 5;
+   public int max_speed;
+   public static string activeCurse;
    public GameObject hor_weakSpot;
    public GameObject vert_weakSpot;
    public GameObject weakSpot_Handler;
    public GameObject monkeyspaw;
-   public GameObject monkeyspawManager;
+   public GameObject monkeyspaw_Handler;
+   private bool monkeyspaw_Destroyed = true;
+   private bool monkeyspaw_Spawned = false;
+
 
    private int positionDecider;
    AudioSource source;
@@ -55,10 +62,24 @@ public class GameManager : MonoBehaviour
                     vertWeakSpotSpawner();
             }
         }
-        if (score == 3 && ball.GetComponent<Ball>().speed == 500)
+        if (score == next_speed_score && ball.GetComponent<Ball>().speed != max_speed)
         {
-            ball.GetComponent<Ball>().speed = ball.GetComponent<Ball>().speed * 1.2f;
+            ball.GetComponent<Ball>().speed = ball.GetComponent<Ball>().speed * 1.1f;
+            next_speed_score = next_speed_score + 5;
         }
+        if (monkeyspaw_Handler.transform.childCount == 0 && monkeyspaw_Destroyed == true && Paddle.currentlyCursed == false)
+            {
+                next_paw_score = score + Random.Range(2, 4);
+                monkeyspaw_Destroyed = false;
+                monkeyspaw_Spawned = false;
+                Debug.Log(next_paw_score);
+            }
+        if (next_paw_score == score && monkeyspaw_Spawned == false && Paddle.currentlyCursed == false)
+            {
+                Instantiate(monkeyspaw, new Vector2(4.44f, 0f), Quaternion.identity, monkeyspaw_Handler.transform);
+                monkeyspaw_Spawned = true;
+                monkeyspaw_Destroyed = true;
+            }
     }
 
     // Update is called once per frame
