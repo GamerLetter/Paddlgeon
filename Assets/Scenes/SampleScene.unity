@@ -2668,6 +2668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   current_score: {fileID: 1760190651}
   ball: {fileID: 476380734}
+  next_speed_score: 5
   max_speed: 0
   hor_weakSpot: {fileID: 7489100281709426855, guid: 2d0a2ff8c73524b4db4f751da21ddc8b, type: 3}
   vert_weakSpot: {fileID: 171403926606431553, guid: d1b3a4779c9f11545b7c43ac9e1ee5d5, type: 3}
@@ -3204,6 +3205,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4503380001745223578, guid: 0d569b4d7dabb5146b813fc3e1039e84, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033089707593053788, guid: 0d569b4d7dabb5146b813fc3e1039e84, type: 3}
+      propertyPath: m_Volume
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7863633513810441444, guid: 0d569b4d7dabb5146b813fc3e1039e84, type: 3}

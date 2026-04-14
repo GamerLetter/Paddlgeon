@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
    public GameObject ball;
    private int score;
    private int next_paw_score;
-   private int next_speed_score = 5;
+   public int next_speed_score = 5;
    public int max_speed;
    public static string activeCurse;
    public GameObject hor_weakSpot;
