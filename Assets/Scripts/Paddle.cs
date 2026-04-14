@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 public class Paddle : MonoBehaviour
 {
 	public Rigidbody2D my_rb;                  
-	public float moveSpeed;                   
+	public float moveSpeed;    
+    public float curseTime = 3f;
+    private float elapsedTime;         
 	public KeyCode UpKey;                 
     public KeyCode DownKey;
     public KeyCode RightKey;
@@ -20,7 +22,8 @@ public class Paddle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-		my_rb = GetComponent<Rigidbody2D>(); //Gets the rigid body 2D component of the parent object  								
+		my_rb = GetComponent<Rigidbody2D>(); //Gets the rigid body 2D component of the parent object  	
+        elapsedTime = 0f;							
     }
 
     // Update is called once per frame
@@ -33,6 +36,14 @@ public class Paddle : MonoBehaviour
         {
             giantCurse();
             currentlyCursed = true;
+            elapsedTime += Time.deltaTime;
+        }
+        if (elapsedTime >= curseTime)
+        {
+            activeCurse = "N/A";
+            currentlyCursed = false;
+            elapsedTime = 0f;
+            normal();
         }
     }
 
@@ -68,6 +79,12 @@ public class Paddle : MonoBehaviour
         }
     }
     
+    void normal()
+    {
+        gameObject.transform.localScale = new Vector2(2, 2);
+        my_rb.gravityScale = 0;
+    }
+
     void giantCurse()
     {
         gameObject.transform.localScale = new Vector2(4, 4);
