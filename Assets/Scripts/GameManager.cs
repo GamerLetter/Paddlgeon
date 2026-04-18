@@ -95,26 +95,26 @@ public class GameManager : MonoBehaviour
             {
                 positionDecider = Random.Range(0, 5);
                 Debug.Log(positionDecider);
-                float fixedHorizontalPlacement = 11.75f;
+                float fixedHorizontalPlacement = 11.11f;
                 if (positionDecider == 0)
                 {
-                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 1), Quaternion.identity, weakSpot_Handler.transform);
+                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 1), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
                 else if (positionDecider == 1)
                 {
-                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 3), Quaternion.identity, weakSpot_Handler.transform);
+                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 3), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
                 else if (positionDecider == 2)
                 {
-                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 5), Quaternion.identity, weakSpot_Handler.transform);
+                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 5), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
                 else if (positionDecider == 3)
                 {
-                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 7), Quaternion.identity, weakSpot_Handler.transform);
+                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 7), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
                 else if (positionDecider == 4)
                 {
-                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 9), Quaternion.identity, weakSpot_Handler.transform);
+                    Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 9), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
             }
     
