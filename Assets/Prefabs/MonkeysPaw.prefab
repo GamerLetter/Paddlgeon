@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 960246650656553731}
   m_Layer: 0
   m_Name: MonkeysPaw
-  m_TagString: Score_Wall
+  m_TagString: Monkeys Paw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -4,7 +4,7 @@ public class Paddle_Animation_Handler : MonoBehaviour
 {
 	public Rigidbody2D my_rb;                  
     public Animator animations;
-
+    private int randomCurse;
         void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ball")
@@ -12,20 +12,21 @@ public class Paddle_Animation_Handler : MonoBehaviour
             animations.Play("Paddle-Hit");
             animations.Play("Paddle-Not-Hit");
         }
-        if (other.gameObject.tag == "Score_Wall")
+        if (other.gameObject.tag == "Monkeys Paw")
         {
-            int randomCurse = 0;
+             randomCurse = Random.Range(0, 2);
+             Debug.Log(randomCurse);
                 if (randomCurse == 0)
                 {
-                    Paddle.activeCurse = "giant";
+                    GameManager.activeCurse = "giant";
                 }
                 else if (randomCurse == 1)
                 {
-                    Paddle.activeCurse = "punch";
+                    GameManager.activeCurse = "clone";
                 }
                 else if (randomCurse == 2)
                 {
-                    Paddle.activeCurse = "double";
+                    GameManager.activeCurse = "punch";
                 }
         }
     }

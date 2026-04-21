@@ -5,25 +5,22 @@ using UnityEngine.SceneManagement;
 public class Paddle : MonoBehaviour
 {
 	public Rigidbody2D my_rb;                  
-	public float moveSpeed;    
-    public float curseTime = 3f;
-    private float elapsedTime;         
+	public float moveSpeed;        
 	public KeyCode UpKey;                 
     public KeyCode DownKey;
     public KeyCode RightKey;
     public KeyCode LeftKey;
     public int stopSpeed;
     public GameObject triggerPad;
+    public GameObject punch;
     public GameObject collisionPad;
     public Animator animations;
-    public static string activeCurse;
-    public static bool currentlyCursed;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 		my_rb = GetComponent<Rigidbody2D>(); //Gets the rigid body 2D component of the parent object  	
-        elapsedTime = 0f;							
     }
 
     // Update is called once per frame
@@ -32,19 +29,6 @@ public class Paddle : MonoBehaviour
         //Every frame it calls the moveUp and the moveDown functions, allowing the player to move
         moveUp();
         moveDown();
-        if (activeCurse == "giant")
-        {
-            giantCurse();
-            currentlyCursed = true;
-            elapsedTime += Time.deltaTime;
-        }
-        if (elapsedTime >= curseTime)
-        {
-            activeCurse = "N/A";
-            currentlyCursed = false;
-            elapsedTime = 0f;
-            normal();
-        }
     }
 
     void Update()
@@ -52,6 +36,7 @@ public class Paddle : MonoBehaviour
         letGo();
         //This peice of code makes it so the position of the pad with trigger collision is the exact same as the position of the pad with normal colission in both the x and y direction.
         triggerPad.transform.position = new Vector2(collisionPad.transform.position.x, collisionPad.transform.position.y);
+        punch.transform.position = new Vector2(punch.transform.position.x , collisionPad.transform.position.y);
     }
 
     void moveUp()
@@ -79,13 +64,13 @@ public class Paddle : MonoBehaviour
         }
     }
     
-    void normal()
+    public void normal()
     {
         gameObject.transform.localScale = new Vector2(2, 2);
         my_rb.gravityScale = 0;
     }
 
-    void giantCurse()
+    public void giantCurse()
     {
         gameObject.transform.localScale = new Vector2(4, 4);
         my_rb.gravityScale = 3;

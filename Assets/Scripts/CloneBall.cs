@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Ball : MonoBehaviour
+public class CloneBall : MonoBehaviour
 
 //NOTE I am not too familar with coding randomized movement besides basic enemy left and right movement.
 //So I had to look up a tutorial to help me with the ball movement.
@@ -14,11 +14,13 @@ public class Ball : MonoBehaviour
     public int score;
     private float randomness;
     private int randomY;
+    private float spriteChangeTime = 3f;
+    private float elapsedTime = 0f;
     public Animator ball_animator;
-    // public Animator bg_animator;
     public static bool clearCheck;
     AudioSource source;
     Collider2D soundTrigger;
+    public SpriteRenderer sprite; 
 
     Vector2 direction; //Vector2 variable called direction, this will be used to manage the direction of the ball
 
@@ -34,13 +36,28 @@ public class Ball : MonoBehaviour
     {
         ball_rb = GetComponent<Rigidbody2D>(); //Gets the balls rigid body and attaches it to the variable
         direction = new Vector2(1, 1); //Sets the direction of the ball to be (1,1) meaning the x direction = 1 and the y direction  = 1
+        // Debug.Log("Spawned!");
     }
 
+    void Update()
+    {
+        if (GameManager.activeCurse == "clone")
+        {
+            elapsedTime += Time.deltaTime;
+        }
+        if (elapsedTime >= spriteChangeTime)
+        {
+            sprite.color = new Color (1, 1, 1, 1);
+        }
+        if (GameManager.activeCurse != "clone")
+        {
+            Destroy(this.gameObject);
+        }
+    }
     private void FixedUpdate()
     {
         ball_rb.linearVelocity = direction * speed * Time.deltaTime; //This controls the movement of the ball using its velocity, this is done by multiplying the speed float variable by the vector2 direction variable
         // Debug.Log(direction); //Sends a statement ot the debug log of the current direction of the ball
-
     }
     
 
@@ -65,11 +82,6 @@ public class Ball : MonoBehaviour
             direction.x = -direction.x;
             source.Play();
         }
-        else if (other.gameObject.tag == "Punch")
-        {
-            direction.y = 0;
-            direction.x = -direction.x;
-        }
         else if (other.gameObject.tag == "Vert_Wall")
         {
             direction.x = -direction.x;
@@ -82,18 +94,6 @@ public class Ball : MonoBehaviour
         }
         if (other.gameObject.tag == "Score_Wall") //If the object it detects has the tag Score_Wall, the score variable is added by 1 AND it is sent to the debug log
         {
-            while (direction.y == 0)
-            {
-                randomY = Random.Range(0, 2);
-                if (randomY == 0)
-                    {
-                        direction.y = 1;
-                    }
-                else 
-                    {
-                        direction.y = -1;
-                    }
-            }
             RandomDirection();
             direction.y = -direction.y;
             direction.x = -direction.x;

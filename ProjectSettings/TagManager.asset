@@ -12,6 +12,8 @@ TagManager:
   - Hor_Wall
   - weakSpot_Check
   - PaddleBlockerVertical
+  - Monkeys Paw
+  - Punch
   layers:
   - Default
   - TransparentFX

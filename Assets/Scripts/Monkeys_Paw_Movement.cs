@@ -77,7 +77,7 @@ public class Monkeys_Paw_Movement : MonoBehaviour
         if (other.gameObject.tag == "Ball" && active == false)
         {
             animations.Play("MonkeysPaw-Move");
-            Debug.Log("AAAAAAAAAA");
+            // Debug.Log("AAAAAAAAAA");
             active = true;
             speed = 10000f;
         }
