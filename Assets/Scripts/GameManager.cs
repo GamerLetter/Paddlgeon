@@ -11,12 +11,12 @@ public class GameManager : MonoBehaviour
    public GameObject ball;
    public GameObject cloneBall;
    public GameObject paddle;
+   public GameObject curseFilter;
    public int lives;
    private int score;
    private int next_paw_score;
    public int next_speed_score = 5;
    public int max_speed;
-   public GameObject hor_weakSpot;
    public GameObject vert_weakSpot;
    public GameObject weakSpot_Handler;
    public GameObject cloneBallHandler;
@@ -93,9 +93,15 @@ public class GameManager : MonoBehaviour
                 cloneBallSpawned = true;
                 currentlyCursed = true;
             }
+        if (activeCurse == "punch")
+            {
+                paddle.GetComponent<Paddle>().summonPunch();
+                currentlyCursed = true;
+            }          
         if (activeCurse != "N/A")
             {
                 elapsedTime += Time.deltaTime;
+                curseFilter.SetActive(true);
             }
         if (elapsedTime >= curseTime)
             {
@@ -107,6 +113,7 @@ public class GameManager : MonoBehaviour
                     }
                 elapsedTime = 0f;
                 paddle.GetComponent<Paddle>().normal();
+                curseFilter.SetActive(false);
             }
     }
 
@@ -151,22 +158,4 @@ public class GameManager : MonoBehaviour
                     Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 9), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
             }
-    
-    void horWeakSpotSpawner()
-    {
-            positionDecider = Random.Range(1, 4);
-            if (positionDecider == 1)
-            {
-                Instantiate(hor_weakSpot, new Vector2(1, 9), Quaternion.identity, weakSpot_Handler.transform);
-            }
-            else if (positionDecider == 2)
-            {
-                Instantiate(vert_weakSpot, new Vector2(5, 9), Quaternion.identity, weakSpot_Handler.transform);
-            }
-            else if (positionDecider == 3)
-            {
-                Instantiate(vert_weakSpot, new Vector2(7, 9), Quaternion.identity, weakSpot_Handler.transform);
-            }
-    }
-
 }

@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
     public float speed; //Public float variable calleed speed, this will be used to control the speed of the ball
+    private float notPunchedSpeed;
     public Rigidbody2D ball_rb; //Public rigidbody2d variable called ball_rb, this will be used to get the balls rigid body
     public int score;
     private float randomness;
@@ -34,6 +35,15 @@ public class Ball : MonoBehaviour
     {
         ball_rb = GetComponent<Rigidbody2D>(); //Gets the balls rigid body and attaches it to the variable
         direction = new Vector2(1, 1); //Sets the direction of the ball to be (1,1) meaning the x direction = 1 and the y direction  = 1
+        notPunchedSpeed = speed;
+    }
+
+    void Update()
+    {
+        if (speed != notPunchedSpeed + 150f)
+        {
+            notPunchedSpeed = speed;
+        }
     }
 
     private void FixedUpdate()
@@ -54,6 +64,7 @@ public class Ball : MonoBehaviour
         else if (other.gameObject.tag == "Paddle")//If the object it detects has the tag Paddle, the x axis of the direction is set to its current value but negative
         {
             randomY = Random.Range(0, 2);
+            speed = notPunchedSpeed;
             if (randomY == 0)
             {
                 direction.y = -direction.y;
@@ -69,6 +80,7 @@ public class Ball : MonoBehaviour
         {
             direction.y = 0;
             direction.x = -direction.x;
+            speed = notPunchedSpeed + 150f;
         }
         else if (other.gameObject.tag == "Vert_Wall")
         {
