@@ -15,6 +15,7 @@ TagManager:
   - Monkeys Paw
   - Punch
   - PlungerBlocker
+  - Slime
   layers:
   - Default
   - TransparentFX

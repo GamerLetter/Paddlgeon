@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     public float speed; //Public float variable calleed speed, this will be used to control the speed of the ball
     private float notPunchedSpeed;
+    private bool slimed = false;
     public Rigidbody2D ball_rb; //Public rigidbody2d variable called ball_rb, this will be used to get the balls rigid body
     public int score;
     private float randomness;
@@ -43,6 +44,7 @@ public class Ball : MonoBehaviour
         if (speed != notPunchedSpeed + 150f)
         {
             notPunchedSpeed = speed;
+            Debug.Log(notPunchedSpeed);
         }
     }
 
@@ -75,12 +77,23 @@ public class Ball : MonoBehaviour
             }
             direction.x = -direction.x;
             source.Play();
+            if (slimed == true)
+            {
+                speed = speed + 150f;
+                slimed = false;
+                notPunchedSpeed = speed;
+            }
         }
         else if (other.gameObject.tag == "Punch")
         {
             direction.y = 0;
             direction.x = -direction.x;
             speed = notPunchedSpeed + 150f;
+        }
+        else if (other.gameObject.tag == "Slime")
+        {
+            speed = speed - 150f;
+            slimed = true;
         }
         else if (other.gameObject.tag == "Vert_Wall")
         {

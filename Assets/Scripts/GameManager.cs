@@ -4,6 +4,20 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public enum curse
+{
+    Giant,
+    Clone,
+    Punch,
+    None
+}
+public enum enemy
+{
+    Plunger,
+    Slime,
+    Sword
+}
+
 public class GameManager : MonoBehaviour
 {
    public TMP_Text current_score;  //Establishing a text variable for the text list
@@ -39,7 +53,8 @@ public class GameManager : MonoBehaviour
    private int positionDecider;
    AudioSource source;
    private int audio_check;
-
+   public curse curse;
+   public enemy enemy;
     // [SerializeField] AudioSource audioSource;
 
     // void Awake()
@@ -55,12 +70,15 @@ public class GameManager : MonoBehaviour
         elapsedTime = 0f;
         next_paw_score = score + Random.Range(1, 5);
         nextEnemyScore = Random.Range(1, 5);
-        activeCurse = "N/A";
+        curse = curse.None;
+        curseSwitch();
+        activeCurse = "None";
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(curse);
         score = ball.GetComponent<Ball>().score;
         current_score.text = score.ToString();
         if (weakSpot_Handler.transform.childCount == 0 && Ball.clearCheck == true)
@@ -77,9 +95,10 @@ public class GameManager : MonoBehaviour
             ball.GetComponent<Ball>().speed = ball.GetComponent<Ball>().speed * 1.1f;
             next_speed_score = next_speed_score + 5;
         }
-        if (monkeyspaw_Handler.transform.childCount == 0 && monkeyspaw_Destroyed == true && currentlyCursed == false)
+        if (monkeyspaw_Handler.transform.childCount == 0 && monkeyspaw_Destroyed == true && currentlyCursed == false && activeCurse == "None")
             {
-                next_paw_score = score + Random.Range(1, 5);
+                // next_paw_score = score + Random.Range(1, 5);
+                next_paw_score = score + 1;
                 monkeyspaw_Destroyed = false;
                 monkeyspaw_Spawned = false;
                 Debug.Log("You need this amount of points for another curse: " + next_paw_score);
@@ -93,41 +112,49 @@ public class GameManager : MonoBehaviour
 
         if (activeCurse == "giant")
             {
-                paddle.GetComponent<Paddle>().giantCurse();
-                currentlyCursed = true;
+                // paddle.GetComponent<Paddle>().giantCurse();
+                // currentlyCursed = true;
+                curse = curse.Giant;
+                curseSwitch();
             }
         if (activeCurse == "clone" && cloneBallSpawned == false)
             {
-                Instantiate(cloneBall, new Vector3(8, 6, -1), Quaternion.identity, cloneBallHandler.transform);
-                cloneBallSpawned = true;
-                currentlyCursed = true;
+                // Instantiate(cloneBall, new Vector3(8, 6, -1), Quaternion.identity, cloneBallHandler.transform);
+                // cloneBallSpawned = true;
+                // currentlyCursed = true;
+                curse = curse.Clone;
+                curseSwitch();
             }
         if (activeCurse == "punch")
             {
-                paddle.GetComponent<Paddle>().summonPunch();
-                currentlyCursed = true;
+                // paddle.GetComponent<Paddle>().summonPunch();
+                // currentlyCursed = true;
+                curse = curse.Punch;
+                curseSwitch();
             }          
-        if (activeCurse != "N/A")
+        if (curse != curse.None)
             {
                 elapsedTime += Time.deltaTime;
                 curseFilter.SetActive(true);
             }
         if (elapsedTime >= curseTime)
             {
-                activeCurse = "N/A";
-                currentlyCursed = false;
-                if (cloneBallSpawned == true)
-                    {
-                    cloneBallSpawned = false;
-                    }
-                elapsedTime = 0f;
-                paddle.GetComponent<Paddle>().normal();
-                curseFilter.SetActive(false);
+                // currentlyCursed = false;
+                // if (cloneBallSpawned == true)
+                //     {
+                //     cloneBallSpawned = false;
+                //     }
+                // elapsedTime = 0f;
+                // paddle.GetComponent<Paddle>().normal();
+                // curseFilter.SetActive(false);
+                curse = curse.None;
+                activeCurse = "None";
+                curseSwitch();
             }
-        if (score >= 10)
-        {
-            startEnemySpawn();
-        }
+        // if (score >= 10)
+        // {
+        //     startEnemySpawn();
+        // }
     }
 
     // Update is called once per frame
@@ -193,4 +220,46 @@ public class GameManager : MonoBehaviour
                     Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 9), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
             }
+        void curseSwitch()
+        {
+            switch(curse)
+            {
+                case curse.Giant:
+                Debug.Log("GIANT");
+                paddle.GetComponent<Paddle>().giantCurse();
+                currentlyCursed = true;
+                break;
+            }
+            switch(curse)
+            {
+                case curse.Clone:
+                Debug.Log("CLONE");
+                Instantiate(cloneBall, new Vector3(8, 6, -1), Quaternion.identity, cloneBallHandler.transform);
+                cloneBallSpawned = true;
+                currentlyCursed = true;
+                break;
+            }
+            switch(curse)
+            {
+                case curse.Punch:
+                Debug.Log("PUNCH");
+                paddle.GetComponent<Paddle>().summonPunch();
+                currentlyCursed = true;
+                break;
+            }
+            switch(curse)
+            {
+                case curse.None:
+                Debug.Log("no curse");
+                currentlyCursed = false;
+                if (cloneBallSpawned == true)
+                    {
+                    cloneBallSpawned = false;
+                    }
+                elapsedTime = 0f;
+                paddle.GetComponent<Paddle>().normal();
+                curseFilter.SetActive(false);
+                break;
+            }
+        }
 }

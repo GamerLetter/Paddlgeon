@@ -36,8 +36,7 @@ public class Paddle_Collision_Handler : MonoBehaviour
         }
         if (other.gameObject.tag == "Monkeys Paw")
         {
-            //  randomCurse = Random.Range(0, 3);
-            randomCurse = 2;
+             randomCurse = Random.Range(0, 3);
             //  Debug.Log(randomCurse);
                 if (randomCurse == 0)
                 {
