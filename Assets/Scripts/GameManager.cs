@@ -10,12 +10,15 @@ public class GameManager : MonoBehaviour
    public TMP_Text currentLives;
    public GameObject ball;
    public GameObject cloneBall;
+   public GameObject plunger;
+   public GameObject enemyHandler;
    public GameObject paddle;
    public GameObject curseFilter;
    public int lives;
    private int score;
    private int next_paw_score;
    public int next_speed_score = 5;
+   private int nextEnemyScore;
    public int max_speed;
    public GameObject vert_weakSpot;
    public GameObject weakSpot_Handler;
@@ -24,8 +27,12 @@ public class GameManager : MonoBehaviour
    public GameObject monkeyspaw_Handler;
    private bool monkeyspaw_Destroyed = true;
    private bool monkeyspaw_Spawned = false;
+   private bool enemyDestroyed = true;
+   private bool enemySpawned = false;
+   private bool firstEnemySpawned = false;
    private bool cloneBallSpawned = false;
    public static string activeCurse;
+   public static string activeEnemy;
    public static bool currentlyCursed;
    public static float curseTime = 10f;
    public static float elapsedTime;     
@@ -42,11 +49,12 @@ public class GameManager : MonoBehaviour
     // }
     void Start()
     {
-        current_score.text = "Score: 0";
-        currentLives.text = "Lives: " + lives;
+        current_score.text = score.ToString();
+        currentLives.text = lives.ToString();
         score = 0;
         elapsedTime = 0f;
-        next_paw_score = score + Random.Range(2, 5);
+        next_paw_score = score + Random.Range(1, 5);
+        nextEnemyScore = Random.Range(1, 5);
         activeCurse = "N/A";
     }
 
@@ -54,7 +62,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         score = ball.GetComponent<Ball>().score;
-        current_score.text = "Score: " + score.ToString();
+        current_score.text = score.ToString();
         if (weakSpot_Handler.transform.childCount == 0 && Ball.clearCheck == true)
         {
             ball.GetComponent<Ball>().score = ball.GetComponent<Ball>().score + 1;
@@ -71,10 +79,10 @@ public class GameManager : MonoBehaviour
         }
         if (monkeyspaw_Handler.transform.childCount == 0 && monkeyspaw_Destroyed == true && currentlyCursed == false)
             {
-                next_paw_score = score + Random.Range(2, 5);
+                next_paw_score = score + Random.Range(1, 5);
                 monkeyspaw_Destroyed = false;
                 monkeyspaw_Spawned = false;
-                Debug.Log(next_paw_score);
+                Debug.Log("You need this amount of points for another curse: " + next_paw_score);
             }
         if (next_paw_score == score && monkeyspaw_Spawned == false && currentlyCursed == false)
             {
@@ -82,6 +90,7 @@ public class GameManager : MonoBehaviour
                 monkeyspaw_Spawned = true;
                 monkeyspaw_Destroyed = true;
             }
+
         if (activeCurse == "giant")
             {
                 paddle.GetComponent<Paddle>().giantCurse();
@@ -89,7 +98,7 @@ public class GameManager : MonoBehaviour
             }
         if (activeCurse == "clone" && cloneBallSpawned == false)
             {
-                Instantiate(cloneBall, new Vector2(8, 6), Quaternion.identity, cloneBallHandler.transform);
+                Instantiate(cloneBall, new Vector3(8, 6, -1), Quaternion.identity, cloneBallHandler.transform);
                 cloneBallSpawned = true;
                 currentlyCursed = true;
             }
@@ -115,6 +124,10 @@ public class GameManager : MonoBehaviour
                 paddle.GetComponent<Paddle>().normal();
                 curseFilter.SetActive(false);
             }
+        if (score >= 10)
+        {
+            startEnemySpawn();
+        }
     }
 
     // Update is called once per frame
@@ -122,14 +135,36 @@ public class GameManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Ball" && lives > 0) //Checks to see if the object that it entered has the tag Ball
         {
-            ball.transform.position = new Vector2(4.664f, 2.56f);
+            ball.transform.position = new Vector3(4.664f, 2.56f, -1);
             lives -= 1;
-            currentLives.text = "Lives: " + lives;
+            currentLives.text = lives.ToString();
         }
         if (other.gameObject.tag == "Ball" && lives < 1)
         {
             SceneManager.LoadScene("GameScene");//If the tag is Ball, it reloads the game scene.
         }
+    }
+    
+    void startEnemySpawn()
+    {
+        if (firstEnemySpawned == false)
+        {
+            Instantiate(plunger, new Vector2(6f, 9.5f), Quaternion.identity, enemyHandler.transform);
+            firstEnemySpawned = true;
+        }
+        if (enemyHandler.transform.childCount == 0 && enemyDestroyed == true)
+            {
+                nextEnemyScore = score + Random.Range(1, 5);
+                enemyDestroyed = false;
+                enemySpawned = false;
+                Debug.Log("You need this amount of points for another enemy to spawn: " + nextEnemyScore);
+            }
+        if (nextEnemyScore == score && enemySpawned == false)
+            {
+                Instantiate(plunger, new Vector2(6f, 9.5f), Quaternion.identity, enemyHandler.transform);
+                enemySpawned = true;
+                enemyDestroyed = true;  
+            }
     }
 
     void vertWeakSpotSpawner()

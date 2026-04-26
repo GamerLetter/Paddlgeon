@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 3669b862166cbe8409f00af5a83c39ed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7866859683212988374
+    second: Paddle-Punch-Sheet_0
+  - first:
+      213: -4701721584444016666
+    second: Paddle-Punch-Sheet_1
+  - first:
+      213: -1195961367962974592
+    second: Paddle-Punch-Sheet_2
+  - first:
+      213: -1280436757397805758
+    second: Paddle-Punch-Sheet_3
+  - first:
+      213: -7397594068251612804
+    second: Paddle-Punch-Sheet_4
+  - first:
+      213: 9095231720033775374
+    second: Paddle-Punch-Sheet_5
+  - first:
+      213: -1479072863815700497
+    second: Paddle-Punch-Sheet_6
+  - first:
+      213: -9019731611480914650
+    second: Paddle-Punch-Sheet_7
+  - first:
+      213: -3704273740982842110
+    second: Paddle-Punch-Sheet_8
+  - first:
+      213: 290672599634868561
+    second: Paddle-Punch-Sheet_9
+  - first:
+      213: 1523143732423243401
+    second: Paddle-Punch-Sheet_10
+  - first:
+      213: 7148880078545155900
+    second: Paddle-Punch-Sheet_11
+  - first:
+      213: -3822783051522638535
+    second: Paddle-Punch-Sheet_12
+  - first:
+      213: -5368021144065021200
+    second: Paddle-Punch-Sheet_13
+  - first:
+      213: 753297533937314825
+    second: Paddle-Punch-Sheet_14
+  - first:
+      213: -8607071839132620587
+    second: Paddle-Punch-Sheet_15
+  - first:
+      213: 6595489973977420266
+    second: Paddle-Punch-Sheet_16
+  - first:
+      213: 533714565461424795
+    second: Paddle-Punch-Sheet_17
+  - first:
+      213: 2111726209743723995
+    second: Paddle-Punch-Sheet_18
+  - first:
+      213: -6301450492256149240
+    second: Paddle-Punch-Sheet_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 3
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a207f3c6ccc43d290800000000000000
+      internalID: -7866859683212988374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 3
+        width: 7
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e77d66312120ceb0800000000000000
+      internalID: -4701721584444016666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 3
+        width: 8
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0860a79e877176fe0800000000000000
+      internalID: -1195961367962974592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 3
+        width: 9
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24563fd9d89fa3ee0800000000000000
+      internalID: -1280436757397805758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 3
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7963599367765990800000000000000
+      internalID: -7397594068251612804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 3
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0f6a7e8f01c83e70800000000000000
+      internalID: 9095231720033775374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 3
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef685b1117497be0800000000000000
+      internalID: -1479072863815700497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 3
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 625815053e973d280800000000000000
+      internalID: -9019731611480914650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 3
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20d09ed98a6c79cc0800000000000000
+      internalID: -3704273740982842110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 3
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159fc27703da80400800000000000000
+      internalID: 290672599634868561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 3
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98633f8972b432510800000000000000
+      internalID: 1523143732423243401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 3
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c37fc871e8ce53360800000000000000
+      internalID: 7148880078545155900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 3
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93dfb90911fb2fac0800000000000000
+      internalID: -3822783051522638535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 3
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c51063f48d831d41916d724215a1576
+      internalID: 1486494527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 3
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3596c2854f0b1e3428e9c40eb44908d7
+      internalID: -1474089238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 3
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63621c38b1b1b954480fa9476eeb5a73
+      internalID: 830060359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 3
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423e1b308a7db094dabc6d3e17664c74
+      internalID: -694434660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 3
+        width: 9
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5d5265d91bb1843bd97a5709708b10
+      internalID: -1552657014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 3
+        width: 8
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb307f2054bd0148b71e4957b299a22
+      internalID: 1337724317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paddle-Punch-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 3
+        width: 7
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d279f72235e8d50468db5a1a7be44139
+      internalID: -1324213773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: add7aed772404654386f774b32cf3ead
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Paddle-Punch-Sheet_0: -7866859683212988374
+      Paddle-Punch-Sheet_1: -4701721584444016666
+      Paddle-Punch-Sheet_10: 1523143732423243401
+      Paddle-Punch-Sheet_11: 7148880078545155900
+      Paddle-Punch-Sheet_12: -3822783051522638535
+      Paddle-Punch-Sheet_13: 1486494527
+      Paddle-Punch-Sheet_14: -1474089238
+      Paddle-Punch-Sheet_15: 830060359
+      Paddle-Punch-Sheet_16: -694434660
+      Paddle-Punch-Sheet_17: -1552657014
+      Paddle-Punch-Sheet_18: 1337724317
+      Paddle-Punch-Sheet_19: -1324213773
+      Paddle-Punch-Sheet_2: -1195961367962974592
+      Paddle-Punch-Sheet_3: -1280436757397805758
+      Paddle-Punch-Sheet_4: -7397594068251612804
+      Paddle-Punch-Sheet_5: 9095231720033775374
+      Paddle-Punch-Sheet_6: -1479072863815700497
+      Paddle-Punch-Sheet_7: -9019731611480914650
+      Paddle-Punch-Sheet_8: -3704273740982842110
+      Paddle-Punch-Sheet_9: 290672599634868561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

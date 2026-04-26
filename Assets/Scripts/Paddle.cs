@@ -14,9 +14,9 @@ public class Paddle : MonoBehaviour
     public GameObject punch;
     public GameObject collisionPad;
     public Animator animations;
-    private bool alreadyPunching = false;
-    private float punchTime = 0.5f;
-    private float elapsedTime = 0f;
+    public static bool alreadyPunching = false;
+    public static float punchTime = 0.5f;
+    public static float elapsedTime = 0f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
