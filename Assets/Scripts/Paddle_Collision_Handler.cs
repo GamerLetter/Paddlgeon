@@ -5,6 +5,7 @@ public class Paddle_Collision_Handler : MonoBehaviour
 	public Rigidbody2D my_rb;                  
     public Animator animations;
     private bool hit = false;
+    public static bool stunned = false;
     private float elapsedHitTime = 0f;
     public KeyCode punch;
     private int randomCurse;
@@ -19,7 +20,7 @@ public class Paddle_Collision_Handler : MonoBehaviour
         {
             elapsedHitTime += Time.deltaTime;
         }
-        if (Paddle.elapsedTime >=  Paddle.punchTime || elapsedHitTime >= Paddle.punchTime)
+        if (Paddle.elapsedPunchTime >=  Paddle.punchTime || elapsedHitTime >= Paddle.punchTime)
         {
             animations.Play("Paddle-Not-Hit");
             hit = false;
@@ -33,6 +34,10 @@ public class Paddle_Collision_Handler : MonoBehaviour
         {
             animations.Play("Paddle-Hit");
             hit = true;
+        }
+        if (other.gameObject.tag == "Sword")
+        {
+            stunned = true;
         }
         if (other.gameObject.tag == "Monkeys Paw")
         {

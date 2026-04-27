@@ -16,6 +16,7 @@ TagManager:
   - Punch
   - PlungerBlocker
   - Slime
+  - Sword
   layers:
   - Default
   - TransparentFX

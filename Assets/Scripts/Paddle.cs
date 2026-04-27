@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 public class Paddle : MonoBehaviour
 {
 	public Rigidbody2D my_rb;                  
-	public float moveSpeed;        
+	public float setMoveSpeed;  
+    private float moveSpeed;      
 	public KeyCode UpKey;                 
     public KeyCode DownKey;
     public KeyCode SpaceKey;
@@ -16,13 +17,16 @@ public class Paddle : MonoBehaviour
     public Animator animations;
     public static bool alreadyPunching = false;
     public static float punchTime = 0.5f;
-    public static float elapsedTime = 0f;
+    public static float elapsedPunchTime = 0f;
+    public float stunTime = 1f;
+    public float elapsedStunTime = 0f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-		my_rb = GetComponent<Rigidbody2D>(); //Gets the rigid body 2D component of the parent object  	
+		my_rb = GetComponent<Rigidbody2D>(); //Gets the rigid body 2D component of the parent object
+        moveSpeed = setMoveSpeed;
     }
 
     // Update is called once per frame
@@ -41,13 +45,24 @@ public class Paddle : MonoBehaviour
         if (alreadyPunching == true)
         {
 			punch.transform.position = new Vector2 (collisionPad.transform.position.x + 0.5f, collisionPad.transform.position.y);
-            elapsedTime += Time.deltaTime;
+            elapsedPunchTime += Time.deltaTime;
         }
-        if (elapsedTime >= punchTime)
+        if (elapsedPunchTime >= punchTime)
         {
             alreadyPunching = false;
 			punch.transform.position = new Vector2 (collisionPad.transform.position.x + 0.5f, 20f);
-            elapsedTime = 0f;
+            elapsedPunchTime = 0f;
+        }
+        if (Paddle_Collision_Handler.stunned == true)
+        {
+            moveSpeed = 0;
+            elapsedStunTime += Time.deltaTime;
+        }
+        if (elapsedStunTime >= stunTime)
+        {
+            Paddle_Collision_Handler.stunned = false;
+            moveSpeed = setMoveSpeed;
+            elapsedStunTime = 0f;
         }
     }
 

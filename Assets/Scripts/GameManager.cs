@@ -25,15 +25,19 @@ public class GameManager : MonoBehaviour
    public GameObject ball;
    public GameObject cloneBall;
    public GameObject plunger;
+   public GameObject sword;
+   public GameObject slime;
    public GameObject enemyHandler;
    public GameObject paddle;
    public GameObject curseFilter;
+   public GameObject curseIcon;
    public int lives;
    private int score;
    private int next_paw_score;
    public int next_speed_score = 5;
    private int nextEnemyScore;
    public int max_speed;
+   private int enemyDecider;
    public GameObject vert_weakSpot;
    public GameObject weakSpot_Handler;
    public GameObject cloneBallHandler;
@@ -151,10 +155,10 @@ public class GameManager : MonoBehaviour
                 activeCurse = "None";
                 curseSwitch();
             }
-        // if (score >= 10)
-        // {
-        //     startEnemySpawn();
-        // }
+        if (score >= 10)
+        {
+            startEnemySpawn();
+        }
     }
 
     // Update is called once per frame
@@ -181,16 +185,30 @@ public class GameManager : MonoBehaviour
         }
         if (enemyHandler.transform.childCount == 0 && enemyDestroyed == true)
             {
-                nextEnemyScore = score + Random.Range(1, 5);
+                nextEnemyScore = score + Random.Range(1, 3);
                 enemyDestroyed = false;
                 enemySpawned = false;
                 Debug.Log("You need this amount of points for another enemy to spawn: " + nextEnemyScore);
             }
         if (nextEnemyScore == score && enemySpawned == false)
             {
-                Instantiate(plunger, new Vector2(6f, 9.5f), Quaternion.identity, enemyHandler.transform);
-                enemySpawned = true;
-                enemyDestroyed = true;  
+                enemyDecider = Random.Range(0, 3);
+                if (enemyDecider == 0)
+                {
+                    enemy = enemy.Plunger;
+                    enemySwitch();
+                }
+              if (enemyDecider == 1)
+                {
+                    enemy = enemy.Slime;
+                    enemySwitch();
+                }
+              if (enemyDecider == 2)
+                {
+                    enemy = enemy.Sword;
+                    enemySwitch();
+                }
+                // enemyDestroyed = true;  
             }
     }
 
@@ -220,7 +238,7 @@ public class GameManager : MonoBehaviour
                     Instantiate(vert_weakSpot, new Vector2(fixedHorizontalPlacement, 9), Quaternion.Euler(0, 0, 90), weakSpot_Handler.transform);
                 }
             }
-        void curseSwitch()
+    void curseSwitch()
         {
             switch(curse)
             {
@@ -228,6 +246,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("GIANT");
                 paddle.GetComponent<Paddle>().giantCurse();
                 currentlyCursed = true;
+                curseIcon.GetComponent<Animator>().Play("giantCurse");
                 break;
             }
             switch(curse)
@@ -237,6 +256,7 @@ public class GameManager : MonoBehaviour
                 Instantiate(cloneBall, new Vector3(8, 6, -1), Quaternion.identity, cloneBallHandler.transform);
                 cloneBallSpawned = true;
                 currentlyCursed = true;
+                curseIcon.GetComponent<Animator>().Play("cloneCurse");
                 break;
             }
             switch(curse)
@@ -245,6 +265,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("PUNCH");
                 paddle.GetComponent<Paddle>().summonPunch();
                 currentlyCursed = true;
+                curseIcon.GetComponent<Animator>().Play("punchCurse");
                 break;
             }
             switch(curse)
@@ -259,7 +280,36 @@ public class GameManager : MonoBehaviour
                 elapsedTime = 0f;
                 paddle.GetComponent<Paddle>().normal();
                 curseFilter.SetActive(false);
+                curseIcon.GetComponent<Animator>().Play("noCurse");
                 break;
             }
         }
+    void enemySwitch()
+    {
+        switch(enemy)
+        {
+            case enemy.Plunger:
+            Instantiate(plunger, new Vector2(6f, 9.5f), Quaternion.identity, enemyHandler.transform);
+            enemySpawned = true;
+            enemyDestroyed = true;
+            break;
+        }
+    
+        switch(enemy)
+        {
+            case enemy.Slime:
+            Instantiate(slime, new Vector2(6f, 9.5f), Quaternion.identity, enemyHandler.transform);
+            enemySpawned = true;
+            enemyDestroyed = true;
+            break;
+        }
+        switch(enemy)
+        {
+            case enemy.Sword:
+            Instantiate(sword, new Vector2(6f, 9.5f), Quaternion.identity, enemyHandler.transform);
+            enemySpawned = true;
+            enemyDestroyed = true;
+            break;
+        }
+    }
 }
