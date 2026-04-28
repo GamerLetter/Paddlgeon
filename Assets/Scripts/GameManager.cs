@@ -159,6 +159,11 @@ public class GameManager : MonoBehaviour
         {
             startEnemySpawn();
         }
+        if (score >= 30)
+        {
+            SceneManager.LoadScene("WinScene");//If the score is greater than or equal to 30,than the lose scene is loaded.
+
+        }
     }
 
     // Update is called once per frame
@@ -172,7 +177,7 @@ public class GameManager : MonoBehaviour
         }
         if (other.gameObject.tag == "Ball" && lives < 1)
         {
-            SceneManager.LoadScene("GameScene");//If the tag is Ball, it reloads the game scene.
+            SceneManager.LoadScene("LoseScene");//If the tag is Ball and lives is less than 1, it loads the lose scene.
         }
     }
     

@@ -10,6 +10,8 @@ public class CloneBall : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
     public float speed; //Public float variable calleed speed, this will be used to control the speed of the ball
+    private float notPunchedSpeed;
+    private bool slimed = false;
     public Rigidbody2D ball_rb; //Public rigidbody2d variable called ball_rb, this will be used to get the balls rigid body
     public int score;
     private float randomness;
@@ -36,7 +38,7 @@ public class CloneBall : MonoBehaviour
     {
         ball_rb = GetComponent<Rigidbody2D>(); //Gets the balls rigid body and attaches it to the variable
         direction = new Vector2(1, 1); //Sets the direction of the ball to be (1,1) meaning the x direction = 1 and the y direction  = 1
-        // Debug.Log("Spawned!");
+        notPunchedSpeed = speed;
     }
 
     void Update()
@@ -52,6 +54,11 @@ public class CloneBall : MonoBehaviour
         if (GameManager.activeCurse != "clone")
         {
             Destroy(this.gameObject);
+        }
+        if (speed != notPunchedSpeed + 150f)
+        {
+            notPunchedSpeed = speed;
+            Debug.Log(notPunchedSpeed);
         }
     }
     private void FixedUpdate()
@@ -81,6 +88,23 @@ public class CloneBall : MonoBehaviour
             }
             direction.x = -direction.x;
             source.Play();
+            if (slimed == true)
+            {
+                speed = speed + 150f;
+                slimed = false;
+                notPunchedSpeed = speed;
+            }
+        }
+        else if (other.gameObject.tag == "Punch")
+        {
+            direction.y = 0;
+            direction.x = -direction.x;
+            speed = notPunchedSpeed + 150f;
+        }
+        else if (other.gameObject.tag == "Slime")
+        {
+            speed = speed - 150f;
+            slimed = true;
         }
         else if (other.gameObject.tag == "Vert_Wall")
         {

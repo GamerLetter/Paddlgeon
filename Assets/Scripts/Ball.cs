@@ -14,6 +14,7 @@ public class Ball : MonoBehaviour
     private bool slimed = false;
     public Rigidbody2D ball_rb; //Public rigidbody2d variable called ball_rb, this will be used to get the balls rigid body
     public int score;
+    public static int setScoreText;
     private float randomness;
     private int randomY;
     public Animator ball_animator;
@@ -41,6 +42,7 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
+        setScoreText = score;
         if (speed != notPunchedSpeed + 150f)
         {
             notPunchedSpeed = speed;
