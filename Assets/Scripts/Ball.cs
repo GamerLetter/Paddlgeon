@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
     public float speed; //Public float variable calleed speed, this will be used to control the speed of the ball
-    private float notPunchedSpeed;
+    public float notPunchedSpeed;
     private bool slimed = false;
     public Rigidbody2D ball_rb; //Public rigidbody2d variable called ball_rb, this will be used to get the balls rigid body
     public int score;

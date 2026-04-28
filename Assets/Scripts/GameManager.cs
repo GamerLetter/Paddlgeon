@@ -59,13 +59,9 @@ public class GameManager : MonoBehaviour
    private int audio_check;
    public curse curse;
    public enemy enemy;
-    // [SerializeField] AudioSource audioSource;
+   private KeyCode restart = KeyCode.R;
+   private KeyCode next = KeyCode.N;
 
-    // void Awake()
-    // {
-    //     source = GetComponent<AudioSource>();
-
-    // }
     void Start()
     {
         current_score.text = score.ToString();
@@ -96,13 +92,13 @@ public class GameManager : MonoBehaviour
         }
         if (score == next_speed_score && ball.GetComponent<Ball>().speed != max_speed)
         {
+            ball.GetComponent<Ball>().speed = ball.GetComponent<Ball>().notPunchedSpeed;
             ball.GetComponent<Ball>().speed = ball.GetComponent<Ball>().speed * 1.1f;
             next_speed_score = next_speed_score + 5;
         }
         if (monkeyspaw_Handler.transform.childCount == 0 && monkeyspaw_Destroyed == true && currentlyCursed == false && activeCurse == "None")
             {
-                // next_paw_score = score + Random.Range(1, 5);
-                next_paw_score = score + 1;
+                next_paw_score = score + Random.Range(1, 4);
                 monkeyspaw_Destroyed = false;
                 monkeyspaw_Spawned = false;
                 Debug.Log("You need this amount of points for another curse: " + next_paw_score);
@@ -116,23 +112,16 @@ public class GameManager : MonoBehaviour
 
         if (activeCurse == "giant")
             {
-                // paddle.GetComponent<Paddle>().giantCurse();
-                // currentlyCursed = true;
                 curse = curse.Giant;
                 curseSwitch();
             }
         if (activeCurse == "clone" && cloneBallSpawned == false)
             {
-                // Instantiate(cloneBall, new Vector3(8, 6, -1), Quaternion.identity, cloneBallHandler.transform);
-                // cloneBallSpawned = true;
-                // currentlyCursed = true;
                 curse = curse.Clone;
                 curseSwitch();
             }
         if (activeCurse == "punch")
             {
-                // paddle.GetComponent<Paddle>().summonPunch();
-                // currentlyCursed = true;
                 curse = curse.Punch;
                 curseSwitch();
             }          
@@ -143,19 +132,12 @@ public class GameManager : MonoBehaviour
             }
         if (elapsedTime >= curseTime)
             {
-                // currentlyCursed = false;
-                // if (cloneBallSpawned == true)
-                //     {
-                //     cloneBallSpawned = false;
-                //     }
-                // elapsedTime = 0f;
-                // paddle.GetComponent<Paddle>().normal();
-                // curseFilter.SetActive(false);
+
                 curse = curse.None;
                 activeCurse = "None";
                 curseSwitch();
             }
-        if (score >= 10)
+        if (score >= 15)
         {
             startEnemySpawn();
         }
@@ -164,6 +146,8 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("WinScene");//If the score is greater than or equal to 30,than the lose scene is loaded.
 
         }
+        Restart();
+        NextScene();
     }
 
     // Update is called once per frame
@@ -198,6 +182,7 @@ public class GameManager : MonoBehaviour
         if (nextEnemyScore == score && enemySpawned == false)
             {
                 enemyDecider = Random.Range(0, 3);
+
                 if (enemyDecider == 0)
                 {
                     enemy = enemy.Plunger;
@@ -311,10 +296,26 @@ public class GameManager : MonoBehaviour
         switch(enemy)
         {
             case enemy.Sword:
-            Instantiate(sword, new Vector2(6f, 9.5f), Quaternion.identity, enemyHandler.transform);
+            Instantiate(sword, new Vector2(-12f, 3.5f), Quaternion.identity, enemyHandler.transform);
             enemySpawned = true;
             enemyDestroyed = true;
             break;
         }
+    }
+    void Restart()
+    {
+        //If the restart key is hit, then the title scene is loaded
+        if (Input.GetKeyDown(restart))
+            {
+                SceneManager.LoadScene("TitleScene");
+            }
+    }
+    void NextScene()
+    {
+        //If the next key is hit, then the next scene is loaded
+        if (Input.GetKeyDown(next))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
     }
 }

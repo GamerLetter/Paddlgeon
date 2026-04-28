@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
@@ -14,10 +15,14 @@ public class InstructionsManager : MonoBehaviour
   public TMP_Text controlsText; //Text variable called control_text
   public TMP_Text storyText;
   public TMP_Text gimmickText;
+  public TMP_Text welcomeText;
   private bool clicked = false; //Bool called clicked, set to false at first
   //Keycodes for next and restart arre set
   private KeyCode next = KeyCode.N;
   private KeyCode restart = KeyCode.R;
+  private string currentlyAt = "Welcome";
+  List<string> welcome = new List<string>(); //List that will be used for the tutorial
+
 
 	void Start () {
 		Button controlsButton = controls.GetComponent<Button>(); //Gets the component of the level1 button from the button itself
@@ -30,14 +35,17 @@ public class InstructionsManager : MonoBehaviour
 		titleButton.onClick.AddListener(Title_Start); //Checks to see if the controls button has been clicked on, if so it runs the Controls function 
         //Cam is set to the main camera, scores from both levels are set to 0
         cam = Camera.main;
-
+        welcome.Add("Welcome to Paddlgeon!     ");
+        welcome.Add("Here you can learn the game.   ");
+        welcome.Add("Click the title button to return to the title.   ");
+        welcomeText.text = welcome[0] + welcome[1] + welcome[2];
 	}
     void Update()
     {
         //If restart key is pressed, then the scene is set to the title
         if (Input.GetKeyDown(restart))
             {
-                SceneManager.LoadScene("Title");
+                SceneManager.LoadScene("TitleScene");
             }
         //If the next key is pressed, then the next scene is loaded
         if (Input.GetKeyDown(next))
@@ -54,14 +62,14 @@ public class InstructionsManager : MonoBehaviour
     void Controls_Start()
     {
         //If the cameras position isn't set to (30, 0, -10) and clicked is false, then its set to the right by 30 units and the control_text is changed
-        if (cam.transform.position != new Vector3(30, 0, -10) && clicked == false)
+        if (cam.transform.position != new Vector3(30, 0, -10) && clicked == false && currentlyAt == "Welcome")
         {
-            for (int i = 0; i < 30; i++)
+            foreach (var welcome in welcome)
             {
-                cam.transform.position = cam.transform.position + new Vector3(1, 0, 0);
+                cam.transform.position = cam.transform.position + new Vector3(10, 0, 0);
             }
             controlsText.text = "Go Back!";
-
+            currentlyAt = "Controls";
         }
         //If the cameras position is set to (30, 0, -10) and clicked is true, then its set to the left  by 30 units and the control_text is changed
 
@@ -72,6 +80,7 @@ public class InstructionsManager : MonoBehaviour
                 cam.transform.position = cam.transform.position - new Vector3(1, 0, 0);
             }
             controlsText.text = "Controls!";
+            currentlyAt = "Welcome";
 
         }
         //Clicked is set to not clicked
@@ -80,13 +89,14 @@ public class InstructionsManager : MonoBehaviour
     void Story_Start()
     {
         //If the cameras position isn't set to (30, 0, -10) and clicked is false, then its set to the right by 30 units and the control_text is changed
-        if (cam.transform.position != new Vector3(-30, 0, -10) && clicked == false)
+        if (cam.transform.position != new Vector3(-30, 0, -10) && clicked == false && currentlyAt == "Welcome")
         {
             for (int i = 0; i < 30; i++)
             {
                 cam.transform.position = cam.transform.position + new Vector3(-1, 0, 0);
             }
             storyText.text = "Go Back!";
+            currentlyAt = "Story";
         }
         //If the cameras position is set to (30, 0, -10) and clicked is true, then its set to the left  by 30 units and the control_text is changed
 
@@ -97,6 +107,7 @@ public class InstructionsManager : MonoBehaviour
                 cam.transform.position = cam.transform.position - new Vector3(-1, 0, 0);
             }
             storyText.text = "Story!";
+            currentlyAt = "Welcome";
 
         }
         //Clicked is set to not clicked
@@ -105,13 +116,14 @@ public class InstructionsManager : MonoBehaviour
 void Gimmicks_Start()
     {
         //If the cameras position isn't set to (30, 0, -10) and clicked is false, then its set to the right by 30 units and the control_text is changed
-        if (cam.transform.position != new Vector3(0, 30, -10) && clicked == false)
+        if (cam.transform.position != new Vector3(0, 30, -10) && clicked == false && currentlyAt == "Welcome")
         {
             for (int i = 0; i < 30; i++)
             {
                 cam.transform.position = cam.transform.position + new Vector3(0, 1, 0);
             }
             gimmickText.text = "Go Back!";
+            currentlyAt = "Gimmicks";
 
         }
         //If the cameras position is set to (30, 0, -10) and clicked is true, then its set to the left  by 30 units and the control_text is changed
@@ -123,6 +135,7 @@ void Gimmicks_Start()
                 cam.transform.position = cam.transform.position - new Vector3(0, 1, 0);
             }
             gimmickText.text = "Curses and Enemies!";
+            currentlyAt = "Welcome";
 
         }
         //Clicked is set to not clicked
