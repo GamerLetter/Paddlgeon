@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 708, y: -120}
-  m_SizeDelta: {x: 460.4637, y: 114.4621}
+  m_AnchoredPosition: {x: 339, y: -79}
+  m_SizeDelta: {x: 270.6841, y: 67.2867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &11522842
 MonoBehaviour:
@@ -553,8 +553,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -690, y: -145}
-  m_SizeDelta: {x: 460.4637, y: 114.4621}
+  m_AnchoredPosition: {x: -344.8898, y: -87.42976}
+  m_SizeDelta: {x: 270.6841, y: 67.2867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393387048
 MonoBehaviour:
@@ -1219,8 +1219,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -690, y: -345}
-  m_SizeDelta: {x: 460.4637, y: 114.4621}
+  m_AnchoredPosition: {x: -344.8898, y: -205}
+  m_SizeDelta: {x: 270.6841, y: 67.2867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &671658171
 MonoBehaviour:
@@ -1375,10 +1375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 960, y: 540}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1445,8 +1445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 708, y: -345}
-  m_SizeDelta: {x: 460.4637, y: 114.4621}
+  m_AnchoredPosition: {x: 337, y: -208}
+  m_SizeDelta: {x: 270.6841, y: 67.2867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772561418
 MonoBehaviour:
@@ -1705,9 +1705,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use the up and down arrow keys to move the paddle. \n\n Hit all of the
-    treasures to earn a point. if 30 points and you win.  Make sure not to lose the
-    ball 3 times or you lose."
+  m_text: "Use the up and down arrow keys to move the paddle. If uou have the paddle
+    punch curse, press the spacebar to punch.\n\n Hit all of the treasures to earn
+    a point. if 30 points and you win.  Make sure not to lose the ball 3 times or
+    you lose."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee7063cf20abb7945975a5e321dc3295, type: 2}
   m_sharedMaterial: {fileID: 2086123483255619952, guid: ee7063cf20abb7945975a5e321dc3295, type: 2}
@@ -2247,8 +2248,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
-  m_fontSizeBase: 90
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2448,8 +2449,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2604,8 +2605,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3022,8 +3023,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3105,10 +3106,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Curses: Curses are obtained from monkey paws. Hitting one will curse you,
-    bringing a positive and negative effect. \n\nIncludes: Growing giant but having
-    gravity, two balls but one looks identical after a bit, and a punch move that
-    makes the ball move straight and faster!"
+  m_text: "Curses: Curses are obtained from crystalized monkey paws..  If the eyeball
+    hits one the player is then cursed, bringing a positive and negative effect.
+    \n\nIncludes: Growing giant but having gravity, two balls but one looks identical
+    after a bit, and a punch move that makes the ball move straight and faster!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee7063cf20abb7945975a5e321dc3295, type: 2}
   m_sharedMaterial: {fileID: 2086123483255619952, guid: ee7063cf20abb7945975a5e321dc3295, type: 2}
@@ -3336,7 +3337,7 @@ Transform:
   m_GameObject: {fileID: 1886128459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.86, y: 27.62, z: 0}
+  m_LocalPosition: {x: -1.64, y: 27.69, z: 0}
   m_LocalScale: {x: 0.6368, y: 0.6368, z: 0.6368}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3427,7 +3428,7 @@ Transform:
   m_GameObject: {fileID: 1923136604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.57, y: 29.2, z: 0}
+  m_LocalPosition: {x: 0.16, y: 27.6, z: 0}
   m_LocalScale: {x: 0.6368, y: 0.6368, z: 0.6368}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3518,7 +3519,7 @@ Transform:
   m_GameObject: {fileID: 2085959705}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.73, y: 29.19, z: 0}
+  m_LocalPosition: {x: -0.84, y: 25.9, z: 0}
   m_LocalScale: {x: 0.6368, y: 0.6368, z: 0.6368}
   m_ConstrainProportionsScale: 1
   m_Children: []

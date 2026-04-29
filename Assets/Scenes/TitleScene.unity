@@ -203,8 +203,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -396,10 +396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 960, y: 540}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1168,8 +1168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -387}
-  m_SizeDelta: {x: 880.8668, y: 165.1616}
+  m_AnchoredPosition: {x: 8, y: -184.15802}
+  m_SizeDelta: {x: 434.4972, y: 81.4678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584695316
 MonoBehaviour:
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credits:\nGame by Hamza Hijazi\nMusic: \n\"Childhood\" by Shuinvy\n\"Game
+  m_text: "Credits:\nGame by GamerLetter\nMusic: \n\"Childhood\" by Shuinvy\n\"Game
     Win Screen\" music by Manuelgraf\n\"Calm Happy RPG Town\" by Scicodedev\n\"Retro
     Game Music\" by Edwardzakal\nAll music is copyright free and found on Freesound.org\n"
   m_isRightToLeft: 0
@@ -1611,8 +1611,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1700,8 +1700,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -82.581}
-  m_SizeDelta: {x: 880.8668, y: 165.1616}
+  m_AnchoredPosition: {x: 8, y: -34}
+  m_SizeDelta: {x: 434.4972, y: 81.4678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2097536359
 MonoBehaviour:
