@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Setting up an enum called curse, contains Giant, Clone, Punch, and None
 public enum curse
 {
     Giant,
@@ -11,6 +12,7 @@ public enum curse
     Punch,
     None
 }
+//Setting up an enum called enemy, contains Plunger, Slime, and Sword
 public enum enemy
 {
     Plunger,
@@ -20,7 +22,8 @@ public enum enemy
 
 public class GameManager : MonoBehaviour
 {
-   public TMP_Text current_score;  //Establishing a text variable for the text list
+    //Establishing a LOT of variables that will be used, due to the amount I'll explain as they're used instead unlike the other scripts so its easier to follow
+   public TMP_Text current_score; 
    public TMP_Text currentLives;
    public GameObject ball;
    public GameObject cloneBall;

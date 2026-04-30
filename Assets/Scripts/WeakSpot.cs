@@ -5,9 +5,9 @@ public class WeakSpot : MonoBehaviour
     private float destroyTime = 0.8f;
     private bool hit = false;
     public Animator animations; 
-    void OnTriggerEnter2D(Collider2D other) //A funtion that checks to see if the ball enters trigger areas
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Ball" || other.gameObject.tag == "Untagged") //If the ball enters a trigger area with the tag wall their direction will change
+        if (other.gameObject.tag == "Ball" || other.gameObject.tag == "Untagged") 
         {
             animations.Play("ChestDestroyanim");
             hit = true;

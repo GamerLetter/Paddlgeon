@@ -8,7 +8,7 @@ public class LoseManager : MonoBehaviour
 {
   public Button reset; //Establishes a button variable called restart 
   public Button title; //Establishes a button variable called menu 
-  public TMP_Text scoreText;
+  public TMP_Text scoreText; //Establishes a public TMP_Text variable called scoreText
   //Keycodes for next and restart are set
   private KeyCode next = KeyCode.N;
   private KeyCode restart = KeyCode.R;
@@ -22,6 +22,7 @@ public class LoseManager : MonoBehaviour
 	}
     void Update()
     {
+        //Sets the scoreText to say "You only returned treasure " + the value of the balls setScoretext + "/30 times.
         scoreText.text = "You only returned treasure " + Ball.setScoreText.ToString() + "/30 times.";
         //If restart key is pressed, then the scene is set to the title
         if (Input.GetKeyDown(restart))
@@ -40,7 +41,7 @@ public class LoseManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
     
-    //Loads the tutorial scene
+    //Loads the title scene
     void titleStart()
     {
         SceneManager.LoadScene("TitleScene");
