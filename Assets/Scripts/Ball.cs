@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
 //I do understand how all of this code works and made sure to comment everything, hopefully that is okay!
 {
     [SerializeField] AudioSource audioSource;
-    public float speed; //Public float variable calleed speed, this will be used to control the speed of the ball
+    public float speed; //Public float variable called speed, this will be used to control the speed of the ball
     public float notPunchedSpeed; //Public float called notPunchedSpeed, used to get the speed when the ball isn't punched
     private bool slimed = false; //Bool that checks if the ball has touched the slime enemy
     public Rigidbody2D ball_rb; //Public rigidbody2d variable called ball_rb, this will be used to get the balls rigid body
@@ -48,7 +48,7 @@ public class Ball : MonoBehaviour
         if (speed != notPunchedSpeed + 150f)
         {
             notPunchedSpeed = speed;
-            Debug.Log(notPunchedSpeed);
+            // Debug.Log(notPunchedSpeed);
         }
     }
 

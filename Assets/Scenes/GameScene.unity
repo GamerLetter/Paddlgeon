@@ -1679,7 +1679,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.509
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4842,7 +4842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1569851807943071289, guid: 0d569b4d7dabb5146b813fc3e1039e84, type: 3}
       propertyPath: speed
-      value: 500
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1569851807943071289, guid: 0d569b4d7dabb5146b813fc3e1039e84, type: 3}
       propertyPath: bg_animator
